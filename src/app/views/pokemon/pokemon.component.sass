@@ -31,8 +31,23 @@
 
   table
     width: 100%
-  th, td
-    overflow: hidden
-    width: 15rem
-    text-overflow: ellipsis
-    white-space: nowrap
+    background: #0b427e6b
+
+    mat-row: nth-child(odd)
+    background-color: none
+
+    tr.mat-row:hover
+      background-color: #bdbdbd8c
+
+    th, td
+      overflow: hidden
+      width: 15rem
+      text-overflow: ellipsis
+      white-space: nowrap
+      color: #fff
+
+  mat-paginator
+    background:#e3e3e3f0
+
+.btn-detail
+  color: #fff

@@ -15,6 +15,6 @@ export class ImgNotAvailableDirective {
   uploadImgDefect() {
     const element = this.elementRef.nativeElement;
 
-    element.src = this.imgCustom;
+    element.src = this.imgCustom || 'https://importadorachen.com.pa/assets/img/portfolio/nodisponible.png';
   }
 }
