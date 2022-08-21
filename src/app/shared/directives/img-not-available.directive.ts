@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, Input, OnInit } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 
 @Directive({
   selector: '[appImgNotAvailable]'
@@ -15,6 +15,6 @@ export class ImgNotAvailableDirective {
   uploadImgDefect() {
     const element = this.elementRef.nativeElement;
 
-    element.src = this.imgCustom || 'https://importadorachen.com.pa/assets/img/portfolio/nodisponible.png';
+    element.src = this.imgCustom;
   }
 }
