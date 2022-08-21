@@ -33,7 +33,7 @@ export class DetailPokemonComponent implements OnInit {
   }
 
   getDetail() {
-    this._service.getDetail(this.pokemon)
+    this._service.getDetails(this.pokemon)
       .subscribe(response => {
         this.detail = response;
       });

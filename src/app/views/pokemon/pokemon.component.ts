@@ -30,7 +30,7 @@ export class PokemonComponent implements OnInit {
 
   allPokemon() {
     this._service
-      .getAll()
+      .getPokemons()
       .subscribe(response => {
         this.dataSource.data = response;
       });

@@ -1,9 +1,9 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Pokemon } from 'src/app/shared/domain/Pokemon';
+import { Pokemon } from 'src/app/shared/domains/Pokemon';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
-import { Detail } from 'src/app/shared/domain/Detail';
+import { Detail } from 'src/app/shared/domains/Detail';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +20,7 @@ export class PokemonService {
     return this.http.get(environment.pokedexUrl)
   }
 
-  getAll() {
+  getPokemons() {
 
     return this.http.get<Pokemon>(this.uri, {
       params: {
@@ -34,7 +34,7 @@ export class PokemonService {
     );
   }
 
-  getDetail(pokemon) {
+  getDetails(pokemon) {
     return this.http.get(`${this.uri}/${pokemon}`)
       .pipe(
         map(item => new Detail(item))
