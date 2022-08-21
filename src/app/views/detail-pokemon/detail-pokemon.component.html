@@ -1,9 +1,8 @@
-<button mat-button class="back" [routerLink]="['pokemon']">
-  <mat-icon> </mat-icon> Volver
-</button>
 <div class="main-container">
   <ng-container *ngIf = "detail else empty">
     <div class="card">
+      <img class="back" src="assets/home.svg" [routerLink]="['pokemon']" alt="back">
+
       <div class="wrapper-image">
         <img class="wrapper-image__pokemon" appImgNotAvailable [imgCustom]="'assets/not-available.png'" [src]="detail.img" alt="img">
       </div>
