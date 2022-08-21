@@ -1,0 +1,114 @@
+@import '_globals'
+
+.main-container
+  width: 100%
+  height: 100vh
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  @include tablet
+    justify-content: normal
+    align-items: baseline
+
+.back
+  position: absolute
+  top: 1rem
+  left: 1rem
+  color: #fff
+
+.card
+  display: flex
+  width: max-content
+  @include tablet
+    flex-direction: column
+    width: 100%
+
+.wrapper-image
+  display: flex
+  padding: 2rem
+  background: #c7c7c759
+  @include tablet
+    justify-content: center
+  &__pokemon
+    min-width: 9rem
+    width: 85%
+    @include tablet
+      width: 9rem
+
+.wrapper-description
+  background: #00000091
+  color: #fff
+  padding: 1rem
+  border-radius: 0 1rem 4rem 0
+
+.statistics
+  display: flex
+  margin: 1rem 0
+  @include mobile
+    flex-direction: column
+
+.column
+  padding-right: 2rem
+  &--pad-main-axis
+    padding: 0 2rem
+  &--border-left
+    border-left: 3px solid blue
+    @include mobile
+      border: 1px solid transparent
+      padding: 0
+
+.item
+  display: flex
+  width: 100%
+  font-size: 1rem
+  &--flex-end
+    justify-content: flex-end
+    @include mobile
+      justify-content: flex-start
+  &__label
+    font-weight: 500
+    text-align: end
+    padding-right: .5rem
+    &--width
+      width: 2rem
+  &__btn-value
+    background: #864343
+    padding: 0 .3rem
+    margin-right: 0.5rem
+    border-radius: 0 1rem
+
+.progress
+  display: flex
+  width: 10rem
+  position: relative
+  &__bar
+    height: 1rem
+    ::ng-deep .mat-progress-bar-fill::after
+      background-color: #4078c7
+    ::ng-deep .mat-progress-bar-buffer
+      background: #a7c5d1
+    ::ng-deep .mat-progress-bar
+      border-radius: 2px
+
+  &__percentage
+    position: absolute
+    left: 1rem
+    font-size: 1rem
+    &::after
+      content: "%"
+
+.moves
+  width: 100%
+  &__label
+    font-weight: 500
+    font-size: 1rem
+    padding-right: .5rem
+
+  & ul
+    column-count: 4
+    @include mobile
+      column-count: 2
+    & li
+      list-style-position: inside
+      list-style-type: disclosure-closed

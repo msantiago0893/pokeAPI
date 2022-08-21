@@ -1,0 +1,99 @@
+
+<div class="main-container">
+  <button mat-button class="back" [routerLink]="['pokemon']">
+    <mat-icon> </mat-icon> Volver
+  </button>
+
+  <ng-container *ngIf = "detail else empty">
+    <div class="card">
+      <div class="wrapper-image">
+        <img class="wrapper-image__pokemon" appImgNotAvailable [imgCustom]="'assets/not-available.png'" [src]="detail.img" alt="img">
+      </div>
+
+      <ng-container>
+        <div class='wrapper-description'>
+          <div class="item">
+            <p class="item__label"> Nombre: </p>
+            <p class="item__value" > {{ pokemon | uppercase }} </p>
+          </div>
+          <div class="statistics">
+            <div class="column">
+              <div class="item">
+                <p class="item__label"> Peso: </p>
+                <p class="item__value">{{ detail.weight }} kg</p>
+              </div>
+              <div class="item">
+                <p class="item__label"> Altura: </p>
+                <p class="item__value">{{ detail.height }} m</p>
+              </div>
+            </div>
+            <ng-container *ngTemplateOutlet="statistics"></ng-container>
+          </div>
+          <div class="item">
+            <p class="item__label"> Tipo: </p>
+            <p class="item__btn-value" *ngFor = "let item of detail.types"> {{ item }} </p>
+          </div>
+          <div class="item">
+            <p class="item__label"> Habilidades: </p>
+            <p class="item__btn-value" *ngFor = "let item of detail.skills"> {{ item }} </p>
+          </div>
+          <ng-container *ngTemplateOutlet="moves"></ng-container>
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+
+  <ng-template #moves>
+    <div class="moves">
+      <p class="moves__label"> Movimientos: </p>
+      <ul>
+        <li *ngFor = "let item of detail.moves"> {{ item }}  </li>
+      </ul>
+    </div>
+  </ng-template>
+
+  <ng-template #statistics>
+    <div class="column column--pad-main-axis column--border-left">
+      <div class="item item--flex-end">
+        <p class="item__label"> Ataque: </p>
+        <div class="progress">
+          <mat-progress-bar class="progress__bar" color="accent" mode="determinate" [value]="detail.attack"></mat-progress-bar>
+          <p  class="progress__percentage">{{ detail.attack }}</p>
+        </div>
+      </div>
+      <div class="item item--flex-end">
+        <p class="item__label"> Defensa: </p>
+        <div class="progress">
+          <mat-progress-bar class="progress__bar" color="accent" mode="determinate" [value]="detail.defense"></mat-progress-bar>
+          <p  class="progress__percentage">{{ detail.defense }}</p>
+        </div>
+      </div>
+      <div class="item item--flex-end">
+        <p class="item__label"> Ataque especial: </p>
+        <div class="progress">
+          <mat-progress-bar class="progress__bar" color="accent" mode="determinate" [value]="detail.specialAttack"></mat-progress-bar>
+          <p  class="progress__percentage">{{ detail.specialAttack }}</p>
+        </div>
+      </div>
+      <div class="item item--flex-end">
+        <p class="item__label"> Defensa especial: </p>
+        <div class="progress">
+          <mat-progress-bar class="progress__bar" color="accent" mode="determinate" [value]="detail.specialDefense"></mat-progress-bar>
+          <p  class="progress__percentage">{{ detail.specialDefense }}</p>
+        </div>
+      </div>
+      <div class="item item--flex-end">
+        <p class="item__label"> Velocidad: </p>
+        <div class="progress">
+          <mat-progress-bar class="progress__bar" color="accent" mode="determinate" [value]="detail.speed"></mat-progress-bar>
+          <p  class="progress__percentage">{{ detail.speed }}</p>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #empty>
+    <app-prv-empty></app-prv-empty>
+  </ng-template>
+
+</div>

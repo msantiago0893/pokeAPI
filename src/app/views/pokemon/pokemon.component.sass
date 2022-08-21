@@ -1,0 +1,38 @@
+.title
+  font-weight: 500
+  margin-top: 1rem
+  text-align: center
+  height: 2rem
+  color: #fff
+
+.main-content
+  display: flex
+  justify-content: center
+  height: calc(100vh - 4rem)
+.wrapper-table
+  display: flex
+  flex-direction: column
+  align-items: flex-end
+  &__filter
+    width: 15rem
+    margin-bottom: 1rem
+    & mat-label
+      color: #fff
+      font-size: 1.2rem
+    & input
+      color: #fff
+      font-size: 1rem
+      border-bottom: 1px solid #fff
+      margin-top: 0.5rem
+      &::placeholder
+        color: #b3a9a9
+  &__paginator
+    align-self: center
+
+  table
+    width: 100%
+  th, td
+    overflow: hidden
+    width: 15rem
+    text-overflow: ellipsis
+    white-space: nowrap
